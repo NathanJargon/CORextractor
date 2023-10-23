@@ -2,6 +2,21 @@
 
 Tesseract Text Extractor is a tool for extracting text from images and documents. It utilizes the power of Tesseract OCR, an open-source Optical Character Recognition engine, to perform text recognition and extraction.
 
+## Q&A
+
+### A. How accurate exactly does this extract images? And will it work with different inputs?
+
+**Since it is given to have the same documentation format, yes it will definitely work with inputs. Whatsoever, inputs with accent letters will have to manually be checked as it is inaccurate when it comes to ISO detection.**
+
+### B. How will you implement this in a website?
+
+**Same as usual... but actually, I am having problem with flask compatibility so I will have to deal with that and maybe I will still use flask for the database. Regardless, it is still being planned.**
+
+### C. What library is used on this?
+
+**The library used on this is pytesseract—a popular OCR for image-to-text tool. Lastly, we used pdf-to-image module for the OCR tool to use on (it can be anything, there are a lot of library that can do this).**
+
+
 ## Features
 
 - Extract text from images, scanned documents, and PDF files.
