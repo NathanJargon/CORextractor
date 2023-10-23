@@ -15,12 +15,16 @@ Tesseract Text Extractor is a tool for extracting text from images and documents
 
 2. **Clone the Repository**:
 
-   ```bash
-    git clone https://github.com/yourusername/tesseract-text-extractor.git
-    Install Dependencies:
-    
-    pip install -r requirements.txt
-    Usage
+```
+ git clone https://github.com/yourusername/tesseract-text-extractor.git
+ Install Dependencies:
+ 
+ pip install -r requirements.txt
+```
+   
+## Usage
+
+   ```
     Basic Usage:
     
     To extract text from an image, simply run:
@@ -32,11 +36,12 @@ Tesseract Text Extractor is a tool for extracting text from images and documents
     -o, --output: Specify the output file (default is stdout).
     Example
     python extract_text.py image.png -l eng -o extracted_text.txt
+```
 
-# License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-# Acknowledgments
+## Acknowledgments
 Tesseract OCR - https://github.com/tesseract-ocr/tesseract
 Feel free to customize this README according to your project's specific details and needs. You can also add more sections, such as "Contributing," "Credits," or "Support," depending on your project's requirements.
 
