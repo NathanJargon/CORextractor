@@ -1,7 +1,5 @@
 # Tesseract Text Extractor
 
-![Tesseract Logo](https://github.com/tesseract-ocr/tesseract/raw/master/doc/images/tesseract_logo_leptonica.png)
-
 Tesseract Text Extractor is a tool for extracting text from images and documents. It utilizes the power of Tesseract OCR, an open-source Optical Character Recognition engine, to perform text recognition and extraction.
 
 ## Features
