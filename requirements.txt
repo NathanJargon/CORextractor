@@ -1,0 +1,3 @@
+psycopg2-binary == 2.9.9
+pdf2image == 10.0.1
+pytesseract == 23.1
