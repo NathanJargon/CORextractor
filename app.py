@@ -14,6 +14,7 @@ db_params = {
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def insert_into_database(info_dict):
+    conn = None
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(**db_params)
@@ -37,10 +38,11 @@ def insert_into_database(info_dict):
         print(f"Error inserting into database: {e}")
 
     finally:
-        # Close the database connection
-        cursor.close()
-        conn.close()
-
+        # Close the database connection and cursor
+        if conn:
+            conn.close()
+        if cursor:
+            cursor.close()
 
 def extract_text_with_special_chars(pdf_file):
     images = convert_from_path(pdf_file)
