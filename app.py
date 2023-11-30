@@ -1,8 +1,48 @@
+import psycopg2
 from pdf2image import convert_from_path
 import pytesseract
 
+# Set up PostgreSQL connection parameters
+db_params = {
+    'host': 'localhost',
+    'database': 'postgres',
+    'user': 'postgres',
+    'password': 'admin',
+    'port': '5432'
+}
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+def insert_into_database(info_dict):
+    conn = None
+    try:
+        # Connect to the PostgreSQL database
+        conn = psycopg2.connect(**db_params)
+        cursor = conn.cursor()
+
+        # Insert information into the database
+        cursor.execute("""
+            INSERT INTO student_info (id, name, campus, gender, age, college, department, major, year_level, curriculum, scholarship, nationality, contact, document_title, registration_number, academic_year)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            info_dict['Id'], info_dict['Name'], info_dict['Campus'], info_dict['Gender'], info_dict['Age'],
+            info_dict['College'], info_dict['Department/Program'], info_dict['Major'], info_dict['Year-Level'],
+            info_dict['Curriculum'], info_dict['Scholarship'], info_dict['Nationality'], info_dict['Contact'],
+            info_dict['Document-Title'], info_dict['Registration-Number'], info_dict['Academic-Year']
+        ))
+
+        # Commit the transaction
+        conn.commit()
+
+    except Exception as e:
+        print(f"Error inserting into database: {e}")
+
+    finally:
+        # Close the database connection and cursor
+        if conn:
+            conn.close()
+        if cursor:
+            cursor.close()
 
 def extract_text_with_special_chars(pdf_file):
     images = convert_from_path(pdf_file)
@@ -51,10 +91,15 @@ def extract_info(text):
     
 
 if __name__ == "__main__":
-    pdf_file = "COR.pdf"
+    pdf_file = "test-file/cor.pdf"
     extracted_text = extract_text_with_special_chars(pdf_file)
     #text_with_page_numbers = add_page_numbers(extracted_text)
     info = extract_info(extracted_text)
     #print(extracted_text)
+    
+    # Insert into PostgreSQL database
+    insert_into_database(info)
+    
+    # console
     for key, value in info.items():
         print(f"{key}: {value}")
