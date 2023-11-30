@@ -1,3 +1,6 @@
+
+-- after verified access, copy-paste to postgres=#
+
 CREATE TABLE student_info (
     id VARCHAR(255),
     name VARCHAR(255),

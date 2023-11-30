@@ -5,8 +5,8 @@ import pytesseract
 # Set up PostgreSQL connection parameters
 db_params = {
     'host': 'localhost',
-    'database': 'student-info',
-    'user': 'admin',
+    'database': 'postgres',
+    'user': 'postgres',
     'password': 'admin',
     'port': '5432'
 }
