@@ -2,6 +2,46 @@
 
 Tesseract Text Extractor is a tool for extracting text from images and documents. It utilizes the power of Tesseract OCR, an open-source Optical Character Recognition engine, to perform text recognition and extraction.
 
+### Prerequisites
+
+- PostgreSQL installed on your machine
+- Python and required dependencies
+
+### Installing
+
+1. **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/your-username/your-project.git
+    cd your-project
+    ```
+
+2. **Set Up PostgreSQL Database:**
+
+    - Ensure PostgreSQL is installed and running.
+    - Create a new database and configure the connection parameters in `app.py`.
+
+3. **Install Python Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Configuration
+
+Update the database connection parameters in `app.py`:
+
+```python
+# Set up PostgreSQL connection parameters
+db_params = {
+    'host': 'localhost',
+    'database': 'your_database',
+    'user': 'your_username',
+    'password': 'your_password',
+    'port': '5432'
+}
+```
+
 ## Q&A
 
 ### A. How accurate exactly does this extract images? And will it work with different inputs?
